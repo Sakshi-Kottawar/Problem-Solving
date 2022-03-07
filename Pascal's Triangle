@@ -1,0 +1,31 @@
+class Solution {
+    public List<List<Integer>> generate(int numRows) {
+         List<List<Integer>> result=new ArrayList<>();
+          for(int i=1;i<=numRows;i++){
+              List<Integer> temp=new ArrayList<>();
+              temp.add(1);
+              if(i==1){
+                  result.add(temp);
+              }
+              else if(i==2){
+                  temp.add(1);
+                  result.add(temp);
+              }else{
+                 getPascalsTriangle(result,i);
+            }              
+          }
+        return result;
+    }
+    
+    public void getPascalsTriangle(List<List<Integer>> result,int index){
+            List<Integer> curr=new ArrayList<>();
+            List<Integer> prev=result.get(index-2);
+            curr.add(1);
+            for(int j=0;j<prev.size() && j+1<prev.size();j++){
+                int sum=prev.get(j)+prev.get(j+1);
+                curr.add(sum);
+            }
+            curr.add(1);
+            result.add(curr);
+    }
+}
