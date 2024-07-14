@@ -4,6 +4,11 @@
 
 // NOTE: It is guaranteed that an answer always exists.
 
+// Input 1:
+
+ // A = [5, 6, -1, 7, 8]
+// Output:-[5, 6]
+
 public class Solution {
     public ArrayList<Integer> solve(ArrayList<Integer> A) {
         int maxLength=Integer.MIN_VALUE;
