@@ -11,23 +11,25 @@
 
 public class Solution {
     public ArrayList<Integer> solve(ArrayList<Integer> A) {
-        int maxLength=Integer.MIN_VALUE;
-        if(A.size()==1){
-            return 0;
-        }
-        int i=0,j=i+1;
-        int start=0,end=0;
-        while(i<A.size() && j<A.size()){
-            if(A.get(j)<0){
-                if(j-1-i+1>maxLength){
-                    maxLength=j-1-i+1;
-                    start=i;
-                    end=j-1;
-                    i=j+1;
-                }
+
+    ArrayList<Integer> res=new ArrayList<>();
+
+    for(int i=0;i<A.size();i++){
+        if(A.get(i)<0)
+            continue;
+        else{
+            ArrayList<Integer> temp=new ArrayList<>();
+            while(i<A.size() && A.get(i)>0){
+                temp.add(A.get(i));
+                i++;
             }
-            
-            j++;
+            if(temp.size()>res.size())
+                res=temp;
         }
     }
+    return res;
+ 
+    }
 }
+        
+      
